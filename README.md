@@ -59,4 +59,89 @@ repeat if Fact does not have Goal and each interation finds a rule corresponds t
 ## Input & Output
 
 - Input : A text file that contains rules, fact and goal to deal with. 
+
+  Example of Input - Testcase 1
+
+  ```
+  Test 1. Initial fact in right hand side
+  1) Rules
+  L A
+  K L
+  A D
+  M D
+  Z F B
+  F C D
+  D A
+  2) Facts
+  A B C
+  3) Goal
+  Z
+  
+  ```
+
+  
+
 - Output : Data, Trace and Results
+
+  Example of Output - Testcase 1
+
+  ```
+  /opt/anaconda3/bin/python3.8 /Users/johyeonyoon/PycharmProjects/ai/Forward-chaining/forwardChaining.py
+  file:test1.txt
+  PART1. Data
+   1)Rules
+       R 1 : A  -> L
+       R 2 : L  -> K
+       R 3 : D  -> A
+       R 4 : D  -> M
+       R 5 : F  B  -> Z
+       R 6 : C  D  -> F
+       R 7 : A  -> D
+  
+   2)Facts
+       A  B  C  
+  
+   3)Goal
+       Z
+  
+  PART2. Trace
+   ITERATION 1
+       R 1 :A -> L, apply, Raise flag1. Facts  A  B  C  L  
+   ITERATION 2
+       R 1 :A -> L, skip, because flag1 raised
+       R 2 :L -> K, apply, Raise flag1. Facts  A  B  C  L  K  
+   ITERATION 3
+       R 1 :A -> L, skip, because flag1 raised
+       R 2 :L -> K, skip, because flag1 raised
+       R 3 :D -> A, not applied, because of lacking  D
+       R 4 :D -> M, not applied, because of lacking  D
+       R 5 :F B -> Z, not applied, because of lacking  F
+       R 6 :C D -> F, not applied, because of lacking  D
+       R 7 :A -> D, apply, Raise flag1. Facts  A  B  C  L  K  D  
+   ITERATION 4
+       R 1 :A -> L, skip, because flag1 raised
+       R 2 :L -> K, skip, because flag1 raised
+       R 3 :D -> A not applied, because RHS in facts. Raise flag2
+       R 4 :D -> M, apply, Raise flag1. Facts  A  B  C  L  K  D  M  
+   ITERATION 5
+       R 1 :A -> L, skip, because flag1 raised
+       R 2 :L -> K, skip, because flag1 raised
+       R 3 :D -> A, skip, because flag2 raised
+       R 4 :D -> M, skip, because flag1 raised
+       R 5 :F B -> Z, not applied, because of lacking  F
+       R 6 :C D -> F, apply, Raise flag1. Facts  A  B  C  L  K  D  M  F  
+   ITERATION 6
+       R 1 :A -> L, skip, because flag1 raised
+       R 2 :L -> K, skip, because flag1 raised
+       R 3 :D -> A, skip, because flag2 raised
+       R 4 :D -> M, skip, because flag1 raised
+       R 5 :F B -> Z, apply, Raise flag1. Facts  A  B  C  L  K  D  M  F  Z  
+  
+  PART3. Results
+      1) Goal Z achieved
+      2) Path:R 1  R 2  R 7  R 4  R 6  R 5  
+  Process finished with exit code 0
+  
+  ```
+
+  
