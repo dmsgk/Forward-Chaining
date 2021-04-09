@@ -1,0 +1,8 @@
+Johyeon Yoon, Seoul national university, erasmus, python
+Test 7. Example from class
+1) Rules
+B A
+2) Facts
+C D A
+3) Goal
+B

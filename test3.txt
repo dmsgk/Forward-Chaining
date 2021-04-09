@@ -1,0 +1,13 @@
+Johyeon Yoon, Seoul national university, python
+Test 3. ?yras vs. Negnevitsky; Negnevitsky wins
+1) Rules
+Z D
+D C
+C B
+B A
+G A
+Z G
+2) Facts
+A
+3) Goal
+Z
