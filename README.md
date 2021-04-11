@@ -13,15 +13,14 @@ find a rule till facts include goal or check all rules but there is no rules for
 
 ## Pseudo code
 
-```py
+```
 variables
 	Fact: list, consists of elements that now I have.
 	Goal: list, termial state.
 	Path: list.
 	Yes: bool.
 	count: int, number of interation
-	apply: bool, represents whether each iteration finds a
-rule applied.
+	apply: bool, represents whether each iteration finds a rule applied.
 	FlagYes: bool, represents if each rule has a flag
 
 setting initial values
